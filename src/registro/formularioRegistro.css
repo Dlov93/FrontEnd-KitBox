@@ -1,0 +1,147 @@
+/* ===== FORMULARIO DE REGISTRO =====
+   Todo va dentro de #formulario-crear-cuenta para no afectar el header, el footer ni otras páginas.
+   La paleta viene de ../css/global.css */
+
+#formulario-crear-cuenta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-family: var(--fuente-principal);
+}
+
+/* Nombre y Apellido lado a lado; los demás campos ocupan las dos columnas */
+#formulario-crear-cuenta .registro-campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 18px;
+}
+
+#formulario-crear-cuenta .registro-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+#formulario-crear-cuenta .registro-campo-completo {
+    grid-column: 1 / -1;
+}
+
+#formulario-crear-cuenta label {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--paleta-primary);
+}
+
+#formulario-crear-cuenta label span {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: color-mix(in srgb, var(--paleta-primary) 70%, transparent);
+}
+
+#formulario-crear-cuenta input {
+    width: 100%;
+    height: 50px;
+    padding: 0 16px;
+    border: 1px solid color-mix(in srgb, var(--paleta-primary) 22%, #FFFFFF);
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 1rem; /* 16px: evita que el celular haga zoom al escribir */
+    color: var(--paleta-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#formulario-crear-cuenta input::placeholder {
+    color: color-mix(in srgb, var(--paleta-primary) 55%, #FFFFFF);
+}
+
+#formulario-crear-cuenta input:focus {
+    outline: none;
+    border-color: var(--paleta-color3);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--paleta-color3) 35%, transparent);
+}
+
+/* Estados que pone RegistroValidaciones.js */
+#formulario-crear-cuenta input.is-invalid {
+    border-color: #DC3545;
+}
+
+#formulario-crear-cuenta input.is-invalid:focus {
+    box-shadow: 0 0 0 3px color-mix(in srgb, #DC3545 25%, transparent);
+}
+
+#formulario-crear-cuenta input.is-valid {
+    border-color: #198754;
+}
+
+#formulario-crear-cuenta small {
+    display: block;
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--paleta-primary) 75%, transparent);
+}
+
+#formulario-crear-cuenta .registro-error {
+    color: #B02A37;
+}
+
+#formulario-crear-cuenta .registro-error:empty {
+    display: none;
+}
+
+.registro-boton {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--paleta-botones);
+    color: #FFFFFF;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.registro-boton:hover {
+    background-color: var(--paleta-primary);
+}
+
+.registro-boton:active {
+    transform: translateY(1px);
+}
+
+.registro-cuenta {
+    margin: -10px 0 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: color-mix(in srgb, var(--paleta-primary) 75%, transparent);
+}
+
+.registro-cuenta a {
+    font-weight: 600;
+    color: var(--paleta-primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.registro-cuenta a:hover {
+    color: var(--paleta-botones);
+}
+
+.registro-mensaje {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.registro-mensaje:empty {
+    display: none;
+}
+
+/* Celular: Nombre y Apellido uno debajo del otro */
+@media (max-width: 576px) {
+    #formulario-crear-cuenta .registro-campos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

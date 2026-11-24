@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Inicio Sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../components/header/header.css">
+  <link rel="stylesheet" href="../../components/footer/footer.css">
+  <link rel="stylesheet" href="./estilosLogin.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+
+  <div id="header"></div> <!-- Se carga con JS-->
+    <main class="login-pagina py-5 px-3">
+    <section class="login-tarjeta row g-0">
+
+      <!----PANEL IZQUIERDO:BIENVENIDA----->
+      <div class="login-bienvenida col-12 col-lg-5">
+        <a class="login-etiqueta" href="../../index.html">Bienvenido a kit-box</a>
+        <h1 class="login-titulo">Qué bueno verte de nuevo.</h1>
+        <p class="login-texto">Inicia sesión para seguir con tu próxima experiencia.</p>
+      </div>
+
+      <!----PANEL DERECHO:FORMULARIO---->
+      <div class="login-contenido col-12 col-lg-7">
+        <h2 class="login-encabezado">Inicia sesión</h2>
+        <p class="login-subtitulo">Ingresa tus datos para continuar.</p>
+
+        <form id="formulario-login" class="row g-3">
+          <div class="col-12">
+            <label for="inputEmail" class="form-label">Correo Electrónico</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="nombre@ejemplo.com" required>
+          </div>
+
+          <div class="col-12">
+            <label for="inputPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" required>
+          </div>
+
+          <div class="col-12 mt-4">
+            <button type="submit" class="btn btn-primary w-100 mb-3">Iniciar Sesión</button>
+          </div>
+        </form>
+
+        <div class="text-center">
+          <small class="text-muted">¿No tienes una cuenta? <a href="../../registro/paginaRegistro.html"
+              class="text-decoration-none">Regístrate aquí</a></small>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER--> <!-- Se carga con JS -->
+
+  <div id="footer"></div>
+
+  <!-- COMPONENTES --> <!-- Se carga con JS -->
+
+  <script src="../../js/components.js"></script>
+  <script src="../../tienda/carrito/localStorage.js"></script>
+  <script src="../../tienda/carrito/agr-carrito.js"></script>
+  <script src="../../registro/ResgistoLocalStorage.js"></script>
+  <script src="./validacionesLogin.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

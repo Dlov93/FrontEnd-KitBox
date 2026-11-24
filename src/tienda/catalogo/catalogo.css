@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+:root {
+    --paleta-primary: #1E4437;
+    --paleta-formulario: #EFEBE2;
+    --paleta-color3: #8FAE9A;
+    --paleta-botones: #886F56;
+    --paleta-fondo: #E7E8E3;
+    --paleta-header-footer: #586F57;
+
+    /* Variables de botones */
+    --boton-primario-bg: var(--paleta-primary);
+    --boton-primario-hover: #143027;
+    --boton-secundario-bg: var(--paleta-botones);
+    --boton-secundario-hover: color-mix(in srgb, var(--paleta-botones) 85%, var(--boton-primario-hover));
+
+    --tamaño-titulo-banner: clamp(1.6rem, 4.5vw, 40px);
+    --espacio-lateral: 55px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: color-mix(in srgb, var(--paleta-fondo) 30%,  transparent)
+}
+
+#footer {
+    width: 100%;
+}
+
+/* ===================== BANNER CONTACTO ===================== */
+
+.banner-contacto-fondo {
+    width: 100%;
+    min-height: 280px;
+    background-image: url("../../assets/imagenes/contacto/banner-contacto.png");
+    background-size: cover;
+    background-position: center;
+    padding: 20px clamp(100px, 10vw, 240px);
+    background-color: color-mix(in srgb, var(--paleta-formulario) 30%, transparent);
+}
+
+.banner-contacto-informacion {
+    color: var(--paleta-primary);
+}
+
+.banner-contacto-titulo {
+    max-width: 26ch;
+    margin-top: 8px;
+    font-size: var(--tamaño-titulo-banner);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.banner-contacto-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    padding: 4px 14px;
+    background-color: color-mix(in srgb, var(--paleta-color3) 40%, transparent);
+    color: var(--paleta-primary);
+    font-size: 0.85rem;
+    border-radius: 999px;
+}
+
+.banner-contacto-texto {
+    max-width: 45ch;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ===================== BUSCADOR Y FILTROS ===================== */
+
+.catalogo-herramientas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.catalogo-buscador {
+    position: relative;
+    flex: 1;
+}
+
+.catalogo-buscador-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 44px 0 46px;
+    border: 1px solid color-mix(in srgb, var(--paleta-primary) 18%, transparent);
+    border-radius: 999px;
+    background-color: #fff;
+    color: var(--paleta-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--paleta-primary) 6%, transparent);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.catalogo-buscador-input::placeholder {
+    color: color-mix(in srgb, var(--paleta-primary) 45%, transparent);
+}
+
+.catalogo-buscador-input:focus {
+    outline: none;
+    border-color: var(--paleta-color3);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--paleta-color3) 30%, transparent);
+}
+
+.catalogo-buscador-lupa {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--paleta-header-footer);
+    stroke-width: 2;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.catalogo-buscador-borrar {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background-color: color-mix(in srgb, var(--paleta-color3) 30%, transparent);
+    color: var(--paleta-primary);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.catalogo-boton-filtros {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 20px;
+    border: 1px solid color-mix(in srgb, var(--paleta-primary) 18%, transparent);
+    border-radius: 999px;
+    background-color: var(--paleta-formulario);
+    color: var(--paleta-primary);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.catalogo-boton-filtros:hover,
+.catalogo-boton-filtros[aria-expanded="true"] {
+    background-color: var(--paleta-primary);
+    color: #fff;
+}
+
+/* ===================== CATEGORÍAS ===================== */
+.catalogo-categorias-titulo {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--paleta-primary);
+}
+
+.catalogo-categorias {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 12px;
+}
+
+.catalogo-categoria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 7px 12px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background-color: transparent;
+    color: var(--paleta-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* El nombre (primer span) va en una sola línea */
+
+.catalogo-categoria > span:first-child {
+    white-space: nowrap;
+}
+
+.catalogo-categoria.activa {
+    background-color: var(--paleta-primary);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* ===================== BOTONES DEL CARRITO ===================== */
+
+/* Botón Añadir (Verde primario) */
+
+.btn-agregar-carrito {
+    background-color: var(--paleta-primary) !important; 
+    border-color: var(--paleta-primary) !important;
+    color: #ffffff !important; /* Letra blanca */
+    font-weight: 600;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: var(--boton-primario-hover) !important; 
+    border-color: var(--boton-primario-hover)!important;
+    color: #ffffff !important;
+}
+
+/* Botón Eliminar: Café / Marrón suave con letra blanca */
+
+.btn-eliminar-carrito {
+    background-color: var(--paleta-botones) !important; 
+    border-color: var(--paleta-botones) !important;
+    color: #ffffff !important; /* Letra blanca */
+    font-weight: 600;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-eliminar-carrito:hover {
+    background-color: color-mix(in srgb, var(--paleta-botones) 80%, var(--paleta-color3)) !important; 
+    border-color: color-mix(in srgb, var(--paleta-botones) 80%, var(--paleta-header-footer)) !important;
+    color: #ffffff !important;
+}
+
+
+/*estilos prueba JUliana Bernal*/
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid var(--paleta-fondo);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+
+.tarjeta:hover {
+    border-color: var(--paleta-botones);
+}
+
+.tarjeta-imagen {
+    width: 100%;
+    height: 250px;
+    background-color: var(--paleta-fondo);
+}
+
+.tarjeta-categoria {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 80%;
+    margin: 0;
+    padding: 4px 12px;
+    background-color: var(--paleta-botones);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tarjeta-cuerpo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.4rem;
+    padding: 0.9rem 1rem 1rem;
+}
+
+.tarjeta-nombre {
+    margin: 0;
+    color: var(--paleta-primary);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.tarjeta-descripcion {
+    margin: 0;
+    color: var(--paleta-header-footer);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.tarjeta-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--paleta-fondo);
+}
+
+.tarjeta-precio {
+    margin: 0;
+    color: var(--paleta-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.tarjeta-stock {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 3px 10px;
+    background-color: color-mix(in srgb, var(--paleta-color3) 25%, #fff);
+    color: var(--paleta-primary);
+    font-size: 0.78rem;
+    border-radius: 999px;
+}
+
+.tarjeta-stock::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--paleta-header-footer);
+    flex-shrink: 0;
+}
+
+.tarjeta-acciones {
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.btn-agregar-carrito {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--paleta-primary);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-agregar-carrito:hover {
+    background-color: var(--boton-primario-hover);
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+@media (max-width: 1280px) {
+    .banner-contacto-fondo {
+        padding-left: var(--espacio-lateral);
+        background-image:
+            linear-gradient(90deg, color-mix(in srgb, var(--paleta-formulario) 95%, transparent) 0%, color-mix(in srgb, var(--paleta-formulario) 80%, transparent) 60%, transparent 75%),
+            url("../../assets/imagenes/contacto/banner-contacto.png");
+        background-size: cover;
+        background-position: right center;
+    }
+}
+
+@media (max-width: 767px) {
+    .catalogo-categorias {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 6px;
+    }
+
+    .catalogo-categoria {
+        width: auto;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+}
+
+/* --------------------------------- ESTILOS BOTÓN LIMPIAR FILTROS ---------------------------------------------------- */
+
+#limpiar-filtros {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 48px;
+    padding: 0 20px;
+    border: 1px solid color-mix(in srgb, var(--paleta-primary) 18%, transparent);
+    border-radius: 999px;
+    background-color: var(--paleta-formulario);
+    color: var(--paleta-primary);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#limpiar-filtros:hover,
+#limpiar-filtros[aria-expanded="true"] {
+    background-color: var(--paleta-primary);
+    color: #fff;
+}
+
+/*  filtros*/
+
+.catalogo-panel-filtros {
+  min-width: 260px; 
+  padding: 1rem;
+  background-color: var(--paleta-fondo);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+}
+
+
+.catalogo-panel-titulo {
+  font-weight: 600;
+  color: var(--paleta-primary);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+
+.catalogo-panel-filtros .form-check {
+  display: flex;
+  align-items: center; 
+  margin-bottom: 10px;
+}
+
+/* Ajustes del input (radio y switch) */
+.catalogo-panel-filtros .form-check-input {
+  margin-top: 0; 
+  cursor: pointer;
+}
+
+/* Ajustes del texto (label) */
+.catalogo-panel-filtros .form-check-label {
+  margin-left: 8px; 
+  color: var(--paleta-primary);
+  cursor: pointer;
+  flex-grow: 1; 
+}
+
+/* Separador */
+.catalogo-panel-linea {
+  margin: 12px 0;
+  opacity: 0.15;
+}
+
+
+.catalogo-panel-filtros .form-check-input:checked {
+  background-color: var(--boton-primario-bg);
+  border-color: var(--boton-primario-hover);
+}
+
+
+.catalogo-panel-filtros .form-check-input:focus {
+  border-color: var(--boton-primario-hover);
+  box-shadow: 0 0 0 0.25rem rgba(138, 43, 226, 0.25); 
+}

@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: var(--fuente-principal);
+    background-color: color-mix(in srgb, var(--paleta-fondo) 30%, transparent);
+}
+
+
+#espacio-botones {
+    gap: 0.75rem;
+    /* móvil */
+}
+
+@media (min-width: 768px) {
+    #espacio-botones {
+        gap: 3rem;
+        /* tablet */
+    }
+}
+
+@media (min-width: 992px) {
+    #espacio-botones {
+        gap: 8rem;
+        /* escritorio */
+    }
+}
+
+@media (min-width: 1200px) {
+    #espacio-botones {
+        gap: 13rem;
+        /* pantallas grandes */
+    }
+}
+
+.imagenes-funcionamiento {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;  /* Esto evita que el icono se deforme */
+    gap: 1;
+    padding-top: 20px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    user-select: none;          /* Evita que se cree un cursor a los lados de las imágenes si doy click en ellas */
+    -webkit-user-select: none;  /* Evita que se cree un cursor a los lados de las imágenes si doy click en ellas */
+    caret-color: transparent;   /* Evita que se cree un cursor a los lados de las imágenes si doy click en ellas */
+}
+
+.imagenes-funcionamiento:hover {
+    transform: scale(1.15);
+}
+
+#funcionamiento {
+    caret-color: transparent;  /* Evita que se cree un cursor a los lados de las imágenes si doy click en ellas */
+}
+
+@media (min-width: 768px) {
+    .imagenes-funcionamiento {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #imagen-envio {
+        padding-right: 80px;
+    }
+    #imagen-feliz {
+        padding-right: 80px;
+    }
+    
+}
+
+#contenedor-botones {
+    padding-top: 20px;
+}
+
+#funcionamiento {
+    padding-top: 1rem;
+}
+
+#imagen-feliz {
+    filter: url(#linea-fina-transparente);
+}
